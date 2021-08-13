@@ -1,0 +1,16 @@
+Wines
+
+ w_id      | bigint                 |           | not null | nextval('wines_w_id_seq'::regclass)
+ brand     | character varying(50)  |           |          |
+ type      | character varying(50)  |           | not null |
+ year      | integer                |           | not null |
+ sweetness | integer                |           |          |
+ acidity   | integer                |           |          |
+ tannin    | integer                |           |          |
+ alcohol   | integer                |           |          |
+ body      | integer                |           |          |
+ rating    | integer                |           | not null |
+ user_id   | bigint                 |           | not null | nextval('wines_user_id_seq'::regclass)
+ favorite  | boolean                |           | not null |
+ picture   | character varying(100) |           |          |
+ location
