@@ -31,5 +31,9 @@ class WineController {
             }
         });
     }
+    post(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+        });
+    }
 }
 exports.default = WineController;

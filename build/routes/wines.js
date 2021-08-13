@@ -8,4 +8,5 @@ const wine_controller_1 = __importDefault(require("../controllers/wine_controlle
 const wineRouter = express_1.Router();
 const wineController = new wine_controller_1.default();
 wineRouter.get('/wines/:user_id', wineController.get);
+wineRouter.post('/wines/:user_id', wineController.post);
 exports.default = wineRouter;

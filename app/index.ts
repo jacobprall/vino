@@ -2,7 +2,7 @@ import path from 'path';
 import express, { Request, Response } from 'express';
 import cookieParser from 'cookie-parser';
 import wineRouter from './routes/wines';
-
+const cors = require('cors');
 const app = express();
 const port = 8080; // default port to listen
 
@@ -10,6 +10,7 @@ const port = 8080; // default port to listen
 
 app.use(express.static(path.resolve('./') + '/build/frontend'));
 app.use(express.json());
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.get('/wines/:user_id', wineRouter)

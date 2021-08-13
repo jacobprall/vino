@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+
 import './App.css';
+import axios from 'axios';
+import { useState } from 'react';
 
 function App() {
+
+  const [wines, setWines] = useState([]);
+
+  const handleClick = async () => {
+    const wineList = axios.get('localhost:8080/wines/1');
+    setWines([wineList]);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <button onClick={() => handleClick()}>Get all wines</button>
+        {
+          wines.map((wine) => {
+            return (
+              <div>{wine}</div>
+            )
+          })
+        }
+      </div>
     </div>
   );
 }

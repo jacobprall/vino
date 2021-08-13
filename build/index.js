@@ -7,11 +7,13 @@ const path_1 = __importDefault(require("path"));
 const express_1 = __importDefault(require("express"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const wines_1 = __importDefault(require("./routes/wines"));
+const cors = require('cors');
 const app = express_1.default();
 const port = 8080; // default port to listen
 // define a route handler for the default home page
 app.use(express_1.default.static(path_1.default.resolve('./') + '/build/frontend'));
 app.use(express_1.default.json());
+app.use(cors());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use(cookie_parser_1.default());
 app.get('/wines/:user_id', wines_1.default);
